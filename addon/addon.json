@@ -1,0 +1,6 @@
+{
+	"title": "Kenny (High on Life)",
+	"type": "weapon",
+	"tags": ["fun", "realism"],
+	"ignore": ["*.psd", "*.md"]
+}

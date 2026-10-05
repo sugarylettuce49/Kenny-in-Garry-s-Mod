@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU1903;CS8602;CS8604</NoWarn>
+    <AssemblyName>KennyInstaller</AssemblyName>
+    <Version>1.0.0</Version>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCnEncoder.Net" Version="2.3.0" />
+    <PackageReference Include="CUE4Parse" Version="1.2.2.202610" />
+    <PackageReference Include="CUE4Parse-Conversion" Version="1.2.2.202610" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- CUE4Parse's native helper (ACL animation decompression), built from github.com/FabianFG/CUE4Parse -->
+    <None Include="CUE4Parse-Natives.dll" CopyToOutputDirectory="PreserveNewest" />
+    <!-- the addon's own code, written into garrysmod/addons/kenny_hol -->
+    <EmbeddedResource Include="../addon/**/*" Exclude="../addon/lua/kenny_hol/sv_test.lua" LogicalName="addon/%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="../tools/kenny.qc" LogicalName="kenny.qc" />
+  </ItemGroup>
+
+</Project>

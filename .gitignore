@@ -1,0 +1,27 @@
+# build output
+installer/bin/
+installer/obj/
+dist/
+
+# never commit anything extracted from High on Life
+*.uasset
+*.uexp
+*.ubulk
+*.pak
+*.wem
+*.bnk
+*.psa
+*.psk
+*.glb
+*.smd
+*.vta
+*.mdl
+*.vvd
+*.vtx
+*.phy
+*.vtf
+*.wav
+*.mp3
+
+__pycache__/
+*.pyc
